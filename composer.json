@@ -26,12 +26,12 @@
   },
   "autoload": {
     "psr-4": {
-      "amylian\\yii\\base\\": "src/"
+      "Amylian\\Yii\\DI\\": "src/"
     }    
   },
   "autoload-dev": {
     "psr-4": {
-      "amylian\\yii\\base\\tests\\": "tests/"
+      "Amylian\\Yii\\DI\\Tests\\": "tests/"
     }    
   }
 }
