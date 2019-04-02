@@ -1,4 +1,4 @@
-
+<?php
 
 namespace Amylian\Yii\DI\Test\TestClass;
 
