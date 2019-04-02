@@ -17,6 +17,7 @@
     }
   ],
   "require": {
+    "php": "^7.1",
     "yiisoft/yii2": "^2.0.13@stable"
   },
   "require-dev": {
