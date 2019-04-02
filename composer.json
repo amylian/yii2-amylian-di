@@ -20,9 +20,12 @@
     "yiisoft/yii2": "^2.0.13@stable"
   },
   "require-dev": {
+    "yiisoft/yii2-dev": "^2.0.13@stable",
+    "phpunit/phpunit": "<8@stable"
   },
   "suggest": {
-    "php": ">=7.0"
+    "php": ">=7.0",
+    "yiisoft/yii2-dev": "*@stable"
   },
   "autoload": {
     "psr-4": {
@@ -31,7 +34,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Amylian\\Yii\\DI\\Tests\\": "tests/"
+      "Amylian\\Yii\\DI\\Test\\": "tests/",
+      "yiiunit\\": "vendor/yiisoft/yii2-dev/tests"
     }    
   }
 }
