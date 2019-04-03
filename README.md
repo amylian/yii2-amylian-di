@@ -53,3 +53,26 @@ to the require section of your `composer.json` file.
 
 Usage
 -----
+
+### Use the extended Container Class as standard Container in Yii2:
+
+Yii2 creates the global Container by automatically. The easiest way to replace
+it with an instance of `\Amylian\Yii\DI\Container` is to add 
+
+```php
+\Yii::$container = new Amylian\Yii\DI\Container();
+```
+
+right after loading Yii.php:
+
+
+```php
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
+
+\Yii::$container = new Amylian\Yii\DI\Container();  // <--- Create New Container!
+
+(new yii\web\Application($config))->run();
+
+```
+
