@@ -26,10 +26,18 @@ The following features are added to the standard implementation:
   `methodName()`. The value can be a reference (Instance or ReferenceInterface), but *must* be
   specified in an array.
 * *ReferenceInterface:* Additionally to the standard Instance object, a `ReferenceInterface` is
-  defined which is resolved upon object creation. The component contains an implmentation of `InstanceArray`
-  which may contain references to other objects which are resolved upon object initiation via
-  DI.
-
+  defined which is resolved upon object creation. This component already contains various
+  implementations of `ReferenceInterface`:
+  * `InstanceArray`: Can be used to define an array of references (`Instance`-objects or objects
+    implementing `ReferenceInterface` which are automatically resolved by the Container when needed.
+    Note: The array may contain other values. If a item is not a reference (i.E. a object of another type, 
+    a string, etc.) the item is left unchanged.
+  * `Alias`: Can be used to define a path containing an alias, e.g. `"@runtime/data/path"`.
+    This type of reference can be used in the config array if a path is used, but the
+    defined object does not support Yii-Aliases (i.E. 3rd party, not yii-specific classes).
+    using `\Amylian\Yii\DI\Alias:of('@app/my/path')` does the same as `\Yii:getPath('@app/my/path')`,
+    but the latter cannot be used in configuration as the aliases are unknown when the configuration
+    is loaded.
 
 Installation
 ------------
