@@ -287,6 +287,10 @@ class Container
                 unset($config[$k]);
             }
         }
+        
+        // Save after-build callback and remove item from config
+        $callbackAfterBuild = $config['__callbackAfterBuild'] ?? null;
+        unset($config['__callbackAfterBuild']);
 
         // Use original implementation to create the object
 
@@ -299,6 +303,12 @@ class Container
             $callable = [$result, $method];
             $v = $this->resolveDependencies($v, null);
             call_user_func_array($callable, $v);
+        }
+        
+        // Call the after-build-callback
+        
+        if (is_callable($callbackAfterBuild)) {
+            call_user_func($callbackAfterBuild, $result);
         }
 
         // Done
